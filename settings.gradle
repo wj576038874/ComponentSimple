@@ -1,0 +1,29 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "ComponentSimple"
+include ":app"
+
+//引入组件
+include ":common-base"
+include ":common-pay"
+include ':component-home'
+include ':component-mine'
+include ':component-community'
+include ':component-square'
+
+//设置组件的路径
+project(":common-base").projectDir = new File(settingsDir, "common/base")
+project(":common-pay").projectDir = new File(settingsDir, "common/pay")
+project(":component-home").projectDir = new File(settingsDir, "component/home")
+project(":component-mine").projectDir = new File(settingsDir, "component/mine")
+project(":component-community").projectDir = new File(settingsDir, "component/community")
+project(":component-square").projectDir = new File(settingsDir, "component/square")

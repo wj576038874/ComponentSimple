@@ -1,0 +1,14 @@
+if (rootProject.ext.isApplication.community){
+    apply from: rootDir.getPath() + "/component/build_application.gradle"
+}else {
+    apply from: rootDir.getPath() + "/component/build_component.gradle"
+}
+
+dependencies {
+
+    implementation project(path: ':common-base')
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
